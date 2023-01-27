@@ -11,9 +11,10 @@ jobs:
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Set up node
         uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: "14"
       - name: Install dependencies
         run: npm install
       - name: Fetch Website Carbon data
