@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/graphql-pokemon/static/css/main.073c9b0a.css",
+    "main.js": "/graphql-pokemon/static/js/main.fa5cf129.js",
+    "static/js/787.ab378faf.chunk.js": "/graphql-pokemon/static/js/787.ab378faf.chunk.js",
+    "index.html": "/graphql-pokemon/index.html",
+    "main.073c9b0a.css.map": "/graphql-pokemon/static/css/main.073c9b0a.css.map",
+    "main.fa5cf129.js.map": "/graphql-pokemon/static/js/main.fa5cf129.js.map",
+    "787.ab378faf.chunk.js.map": "/graphql-pokemon/static/js/787.ab378faf.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.fa5cf129.js"
+  ]
+}
