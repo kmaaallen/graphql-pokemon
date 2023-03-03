@@ -1,52 +1,50 @@
-import { useQuery, gql } from "@apollo/client";
-import { Card } from "./Components/Card";
+import { Button } from "./Components/Button/Button";
+import { PokemonGrid } from "./Components/Pokemon/PokemonGrid";
+import React, { useState } from "react";
 
-const POKEMON = gql`
-  query GetAllPokemon($offset: Int) {
-    getAllPokemon(offset: $offset) {
-      num
-      key
-      sprite
-      baseSpecies
-    }
-  }
-`;
-
-type Pokemon = {
-  key: string;
-  num: number;
-  sprite: string;
-  baseSpecies: string;
-};
+const pokemonTypes = [
+  "bug",
+  "dark",
+  "dragon",
+  "electric",
+  "fairy",
+  "fighting",
+  "fire",
+  "flying",
+  "ghost",
+  "grass",
+  "ground",
+  "ice",
+  "normal",
+  "poison",
+  "psychic",
+  "rock",
+  "steel",
+  "water",
+];
 
 function Homepage() {
-  const { data, loading, error } = useQuery(POKEMON, {
-    variables: { offset: 88 },
-  });
-
-  if (loading) return <div>Loading...</div>;
-
-  if (error) return <div>{error.message}</div>;
-
-  const basePokemon = data.getAllPokemon.filter(
-    (pokemon: Pokemon) => !pokemon.baseSpecies
-  );
-
-  const sortedPokemon = basePokemon.sort(function (a: Pokemon, b: Pokemon) {
-    if (a.key < b.key) {
-      return -1;
-    } else if (a.key > b.key) {
-      return 1;
-    } else {
-      return 0;
-    }
-  });
+  const [pokemonType, setPokemonType] = useState("");
+  console.log(pokemonType);
+  const handleTypeChange = (event: React.MouseEvent<HTMLButtonElement>) => {
+    document.getElementsByClassName("active")[0]?.classList.remove("active");
+    setPokemonType(event.currentTarget.name);
+    event.currentTarget.classList.add("active");
+  };
 
   return (
     <div className="wrapper">
-      {sortedPokemon.map((pokemon: Pokemon) => (
-        <Card name={pokemon.key} number={pokemon.num} image={pokemon.sprite} />
-      ))}
+      <div className="buttonWrapper">
+        {pokemonTypes.map((type) => (
+          <Button
+            key={type}
+            name={type}
+            onClick={handleTypeChange}
+            content={type.toUpperCase()}
+          />
+        ))}
+      </div>
+      <PokemonGrid pokemonType={pokemonType} />
     </div>
   );
 }

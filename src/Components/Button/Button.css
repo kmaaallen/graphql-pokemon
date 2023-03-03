@@ -1,0 +1,14 @@
+button {
+    background: white;
+    border: 3px solid #F00000;
+    color: #222224;
+    font-weight: bold;
+    min-height: 2rem;
+    width: 6rem;
+    border-radius: 50px;
+}
+
+.active {
+    background: #222224;
+    color: white;
+}

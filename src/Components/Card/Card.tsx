@@ -11,7 +11,7 @@ export const Card = ({ name, number, image }: CardProps) => {
     <div className="card">
       <h3>{name}</h3>
       <p>{number}</p>
-      <img src={image} />
+      <img src={image} alt={`${name} pokemon`} />
     </div>
   );
 };

@@ -19,3 +19,11 @@ code {
   margin: 30px;
   gap: 10px;
 }
+
+.buttonWrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  margin: 30px;
+  gap: 10px;
+}
